@@ -14,8 +14,7 @@ let playerChoice = () => {
     let choice = inputChoice.toLowerCase();
 
     if (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors') {
-        console.log('Choose ONLY among rock, paper, or scissors');
-        playerChoice();
+        return playerChoice();
     } else {
         return choice;
     }
@@ -27,6 +26,20 @@ let computerSelection = computerPlay(); //function call for computer assigned to
 //play a single round of Rock Paper Scissors
 //return the outcome
 function playRound(playerSelection, computerSelection) {
-    
-}
+    let result;
+
+    if (computerSelection === 'rock' && playerSelection === 'scissors') {
+        result = `You lose! ${computerSelection} beats ${playerSelection}.`;
+    } else if (computerSelection === 'paper' && playerSelection === 'rock') {
+        result = `You lose! ${computerSelection} beats ${playerSelection}.`;
+    } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
+        result = `You lose! ${computerSelection} beat ${playerSelection}.`;
+    } else if (computerSelection === playerSelection) {
+        result = `Draw!`;
+    } else {
+        result = `You win! ${playerSelection} beats ${computerSelection}.`;
+    }
+
+    return result;
+}//works
 
