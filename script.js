@@ -1,12 +1,10 @@
-
 //computer randomly returns 'rock', 'paper' or 'scissors'
 function computerPlay() {
     const output = ['rock', 'paper', 'scissors'];
     let index = Math.floor(Math.random()*output.length);
     
     return output[index];
-} //works
-
+}
 
 //ask user for input and check if input is valid
 let playerChoice = () => {
@@ -18,7 +16,7 @@ let playerChoice = () => {
     } else {
         return choice;
     }
-};//works
+};
 
 let playerSelection;
 let computerSelection;
@@ -43,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
     }
 
     return result;
-}//works 
+} 
 
 
 //play 5 rounds game; keep score
@@ -56,7 +54,7 @@ function game() {
         
         if (i === 4) return scoreTable(result, i);
     }
-}//works
+}
 
 
 //game(); //call function to play RPS five rounds
@@ -65,9 +63,9 @@ function game() {
 
 
 //"helper" function for game() to keep score
-function scoreTable(playRound , i) {
-    let lose = result => {return result.match(/[lose]/gi)};
-    let win = result => {return result.match(/[win]/i)};
+function scoreTable(playRound, i) {
+    let lose = result => { return result.match(/[lose]/gi) };
+    let win = result => { return result.match(/[win]/i) };
     let resultComputer = 0;
     let resultPlayer = 0;
     let resultDraw = 0;
@@ -91,4 +89,4 @@ function scoreTable(playRound , i) {
             return console.log('Draw!');
         }
     }
-}//works
+}
