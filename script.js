@@ -45,7 +45,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 //play 5 rounds game; keep score
-//display results to console after each round
+//console.log results after each round
 function game() {
 
     for (let i = 0; i < 5; i++) {
