@@ -1,18 +1,17 @@
-//computer randomly returns 'rock', 'paper' or 'scissors'
-function computerPlay() {
+function makeComputerChoose() {
     const output = ['rock', 'paper', 'scissors'];
-    let index = Math.floor(Math.random()*output.length);
+    let index = Math.floor(Math.random() * output.length);
     
     return output[index];
 }
 
 //ask user for input and check if input is valid
-let playerChoice = () => {
+let getPlayerChoice = () => {
     let inputChoice = prompt('Choose rock, paper, or scissors. \nEnter your choice: ');
     let choice = inputChoice.toLowerCase();
 
     if (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors') {
-        return playerChoice();
+        return getPlayerChoice();
     } else {
         return choice;
     }
@@ -24,8 +23,8 @@ let computerSelection;
 //play a single round of Rock Paper Scissors
 //return the outcome
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerChoice(); //function call for player assigned to variable
-    computerSelection = computerPlay(); //function call for computer assigned to variable
+    playerSelection = getPlayerChoice(); //function call for player assigned to variable
+    computerSelection = makeComputerChoose(); //function call for computer assigned to variable
     let result;
 
     if (computerSelection === 'rock' && playerSelection === 'scissors') {
@@ -47,9 +46,11 @@ function playRound(playerSelection, computerSelection) {
 //play 5 rounds game; keep score
 //console.log results after each round
 function game() {
+    let result;
 
     for (let i = 0; i < 5; i++) {
-        console.log(playRound());
+        result = playRound();
+        console.log(result);
         scoreTable(result, i);
         
         if (i === 4) return scoreTable(result, i);
@@ -57,15 +58,15 @@ function game() {
 }
 
 
-//game(); //call function to play RPS five rounds
+game(); //call function to play RPS five rounds
 
 
 
 
 //"helper" function for game() to keep score
-function scoreTable(playRound, i) {
-    let lose = result => { return result.match(/[lose]/gi) };
-    let win = result => { return result.match(/[win]/i) };
+function scoreTable(result, i) {
+    let lose = result => { return result.match(/[lose]/gi); };
+    let win = result => { return result.match(/[win]/i); };
     let resultComputer = 0;
     let resultPlayer = 0;
     let resultDraw = 0;
