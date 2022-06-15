@@ -5,7 +5,7 @@ function makeComputerChoose() {
     return output[index];
 }
 
-//ask user for input and check if input is valid
+
 let getPlayerChoice = () => {
     let inputChoice = prompt('Choose rock, paper, or scissors. \nEnter your choice: ');
     let choice = inputChoice.toLowerCase();
@@ -20,11 +20,10 @@ let getPlayerChoice = () => {
 let playerSelection;
 let computerSelection;
 
-//play a single round of Rock Paper Scissors
-//return the outcome
+
 function playRound(playerSelection, computerSelection) {
-    playerSelection = getPlayerChoice(); //function call for player assigned to variable
-    computerSelection = makeComputerChoose(); //function call for computer assigned to variable
+    playerSelection = getPlayerChoice(); 
+    computerSelection = makeComputerChoose(); 
     let result;
 
     if (computerSelection === 'rock' && playerSelection === 'scissors') {
@@ -43,8 +42,6 @@ function playRound(playerSelection, computerSelection) {
 } 
 
 
-//play 5 rounds game; keep score
-//console.log results after each round
 function game() {
     let result;
 
@@ -58,12 +55,12 @@ function game() {
 }
 
 
-game(); //call function to play RPS five rounds
+game(); 
 
 
 
 
-//"helper" function for game() to keep score
+// "helper" function for game() to keep score
 function scoreTable(result, i) {
     let lose = result => { return result.match(/[lose]/gi); };
     let win = result => { return result.match(/[win]/i); };
